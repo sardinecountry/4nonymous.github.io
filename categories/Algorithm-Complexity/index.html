@@ -26,7 +26,7 @@
 <meta name="description" content="一个无名小卒罢了,写一些技术文档和平时的所思所想">
 <meta property="og:type" content="website">
 <meta property="og:title" content="4nonymous">
-<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:url" content="http://example.com/categories/Algorithm-Complexity/index.html">
 <meta property="og:site_name" content="4nonymous">
 <meta property="og:description" content="一个无名小卒罢了,写一些技术文档和平时的所思所想">
 <meta property="og:locale" content="en_US">
@@ -34,19 +34,19 @@
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://example.com/">
+<link rel="canonical" href="http://example.com/categories/Algorithm-Complexity/">
 
 
 <script class="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
+    isHome : false,
     isPost : false,
     lang   : 'en'
   };
 </script>
-<title>4nonymous</title>
+<title>Category: Algorithm & Complexity | 4nonymous</title>
   
 
 
@@ -203,103 +203,50 @@
 </noscript>
 
 
-    <div class="main-inner index posts-expand">
-
-    
+    <div class="main-inner category posts-collapse">
 
 
-<div class="post-block">
   
   
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/03/31/PandNP/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="魂萦星月">
-      <meta itemprop="description" content="一个无名小卒罢了,写一些技术文档和平时的所思所想">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="4nonymous">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/03/31/PandNP/" class="post-title-link" itemprop="url">从"兄且安心去,汝妻吾养之"看P类与NP类</a>
+  
+  <div class="post-block">
+    <div class="post-content">
+      <div class="collection-title">
+        <h2 class="collection-header">Algorithm & Complexity
+          <small>Category</small>
         </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-03-31 20:04:02" itemprop="dateCreated datePublished" datetime="2021-03-31T20:04:02+01:00">2021-03-31</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-04-01 01:55:44" itemprop="dateModified" datetime="2021-04-01T01:55:44+01:00">2021-04-01</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Algorithm-Complexity/" itemprop="url" rel="index"><span itemprop="name">Algorithm & Complexity</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="故事背景"><a href="#故事背景" class="headerlink" title="故事背景"></a>故事背景</h1><p>张三要出差了,老王和他说”兄且安心去,汝妻吾养之”. 张三的心里冒出了一些疑惑,为什么老王这么希望我出差?难道…..他拍了拍老王的肩膀,说:”兄弟,交给你了”.然后走上了去机场的路.他打定主意,半路上杀一个回马枪,回家查看情况.</p>
-<p>张三在家门口敲门,听到里面一阵急促的声音,妻子才来开门.妻子的头发十分凌乱,张三问:”你在干什么?”.妻子答道:”做头发”.在屋子里观察了一圈后,张三断定老王在衣柜里,但是不知道在哪个衣柜里.</p>
-<h1 id="P类与NP类的实例化"><a href="#P类与NP类的实例化" class="headerlink" title="P类与NP类的实例化"></a>P类与NP类的实例化</h1><p>从故事里我们可以发现,张三在回家后思考了两个问题.</p>
-<p>1.老王在不在衣柜里?</p>
-<p>2.老王在哪个衣柜里?</p>
-<p>很显然, Q1代表了P类,而Q2代表的是NP类.</p>
-<p>因为老王可以依次打开每一个衣柜,对这个问题进行判断.但是没有一个算法可以直接得出:老王这个王八蛋肯定躲在第n个衣柜里.</p>
-<h1 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h1><p>对于一个字符串集合S={0,1}*.我们将某个01字符串x作为图灵机的输入,要求相对应的图灵机判断x是否存在于S内</p>
-<h2 id="P类"><a href="#P类" class="headerlink" title="P类"></a>P类</h2><p>根据上述问题, 存在一个图灵机可以在多项式图灵机能够判断x是否在S中. 打个不确切的比方,就是张三可以在多项式时间内判断老王是否在衣柜中</p>
-<h2 id="NP类"><a href="#NP类" class="headerlink" title="NP类"></a>NP类</h2><p>根据上述问题, 存在一个图灵机M. 如果某个x存在于S中,那么就存在一个验证字符串u</p>
-<p>|u|=|x|<sup>c</sup>, 从而得出 M &lt;u,x&gt; = 1</p>
-<p>这个图灵机其实就是就是通用图灵机.</p>
-<p>抛开上述问题,还有一个更为简单的方法来证明一个问题是属于NP类的.放在我们的故事中即为”张三可以在多项式时间内验证第n个衣柜中是否存在老王”.</p>
-<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><p>有空的话会对什么是图灵机和什么是多项式时间做个解释,以及复杂类的组成(即P,NP,NPC,NPHard之间的关系).</p>
-<p>但是后面的一些文章会更加偏向于逆向分析,缓冲区溢出,Web渗透,病毒分析这些,除此之外再涉及一些具体的算法,例如贪心算法,动态规划这些.</p>
-<p>我只是一个网安的初学者,到目前为止入门了没有我自己也不知道.如果可以把一些形而上的东西用人话讲出来,而且听众或者读者可以明白这大概是个什么, 我觉得我就成功了一半了.其实还是很后悔念计算机的,哈哈哈哈.</p>
+      </div>
 
       
+    <div class="collection-year">
+      <span class="collection-header">2021</span>
     </div>
 
-    
-    
-    
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <div class="post-meta-container">
+        <time itemprop="dateCreated"
+              datetime="2021-03-31T20:04:02+01:00"
+              content="2021-03-31">
+          03-31
+        </time>
+      </div>
 
-    <footer class="post-footer">
-        <div class="post-eof"></div>
+      <div class="post-title">
+          <a class="post-title-link" href="/2021/03/31/PandNP/" itemprop="url">
+            <span itemprop="name">从"兄且安心去,汝妻吾养之"看P类与NP类</span>
+          </a>
+      </div>
+
       
-    </footer>
+    </header>
   </article>
-</div>
 
-
-
-
+    </div>
+  </div>
+  
+  
+  
 
 
 <script>
