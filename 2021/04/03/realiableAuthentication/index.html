@@ -23,15 +23,15 @@
     var NexT = window.NexT || {};
     var CONFIG = {"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","version":"8.2.2","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
   </script>
-<meta name="description" content="2FA (2 Factor Authentication)与传统身份认证不同.2FA &#x3D; pwd + 基于时间,物理硬件等自然变量通过一系列的加密算法得出的动态密码.  以steam令牌为例的时间同步算法的实现方案1 NTP2 PTP U2F暂不考虑 Conclusion需要同时设计windows与移动端的软件.windows用于pwd的验证,移动端主要使用时间同步算法作为二次验证">
+<meta name="description" content="2FA (2 Factor Authentication)与传统身份认证不同.2FA &#x3D; pwd + 基于时间,物理硬件等自然变量通过一系列的加密算法得出的动态密码.  以steam令牌为例的时间同步算法的实现方案 NTP PTPU2F暂不考虑  Conclusion需要同时设计windows与移动端的软件.windows用于pwd的验证,移动端主要使用时间同步算法作为二次验证">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Reliable authentication mechanisms beyond password">
 <meta property="og:url" content="http://example.com/2021/04/03/realiableAuthentication/index.html">
 <meta property="og:site_name" content="4nonymous">
-<meta property="og:description" content="2FA (2 Factor Authentication)与传统身份认证不同.2FA &#x3D; pwd + 基于时间,物理硬件等自然变量通过一系列的加密算法得出的动态密码.  以steam令牌为例的时间同步算法的实现方案1 NTP2 PTP U2F暂不考虑 Conclusion需要同时设计windows与移动端的软件.windows用于pwd的验证,移动端主要使用时间同步算法作为二次验证">
+<meta property="og:description" content="2FA (2 Factor Authentication)与传统身份认证不同.2FA &#x3D; pwd + 基于时间,物理硬件等自然变量通过一系列的加密算法得出的动态密码.  以steam令牌为例的时间同步算法的实现方案 NTP PTPU2F暂不考虑  Conclusion需要同时设计windows与移动端的软件.windows用于pwd的验证,移动端主要使用时间同步算法作为二次验证">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-04-03T04:15:09.000Z">
-<meta property="article:modified_time" content="2021-04-03T04:47:58.513Z">
+<meta property="article:modified_time" content="2021-04-03T04:52:25.034Z">
 <meta property="article:author" content="魂萦星月">
 <meta name="twitter:card" content="summary">
 
@@ -157,7 +157,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#2FA-2-Factor-Authentication"><span class="nav-number">1.</span> <span class="nav-text">2FA (2 Factor Authentication)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A5steam%E4%BB%A4%E7%89%8C%E4%B8%BA%E4%BE%8B%E7%9A%84%E6%97%B6%E9%97%B4%E5%90%8C%E6%AD%A5%E7%AE%97%E6%B3%95%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%A1%88"><span class="nav-number">1.1.</span> <span class="nav-text">以steam令牌为例的时间同步算法的实现方案</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#U2F"><span class="nav-number">2.</span> <span class="nav-text">U2F</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Conclusion"><span class="nav-number">3.</span> <span class="nav-text">Conclusion</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#2FA-2-Factor-Authentication"><span class="nav-number">1.</span> <span class="nav-text">2FA (2 Factor Authentication)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A5steam%E4%BB%A4%E7%89%8C%E4%B8%BA%E4%BE%8B%E7%9A%84%E6%97%B6%E9%97%B4%E5%90%8C%E6%AD%A5%E7%AE%97%E6%B3%95%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%A1%88"><span class="nav-number">1.0.1.</span> <span class="nav-text">以steam令牌为例的时间同步算法的实现方案</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#U2F"><span class="nav-number">2.</span> <span class="nav-text">U2F</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Conclusion"><span class="nav-number">3.</span> <span class="nav-text">Conclusion</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -244,7 +244,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2021-04-03 05:15:09 / Modified: 05:47:58" itemprop="dateCreated datePublished" datetime="2021-04-03T05:15:09+01:00">2021-04-03</time>
+      <time title="Created: 2021-04-03 05:15:09 / Modified: 05:52:25" itemprop="dateCreated datePublished" datetime="2021-04-03T05:15:09+01:00">2021-04-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -266,10 +266,12 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="2FA-2-Factor-Authentication"><a href="#2FA-2-Factor-Authentication" class="headerlink" title="2FA (2 Factor Authentication)"></a>2FA (2 Factor Authentication)</h1><p>与传统身份认证不同.<br>2FA = pwd + 基于时间,物理硬件等自然变量通过一系列的加密算法得出的动态密码. </p>
-<h2 id="以steam令牌为例的时间同步算法的实现方案"><a href="#以steam令牌为例的时间同步算法的实现方案" class="headerlink" title="以steam令牌为例的时间同步算法的实现方案"></a>以steam令牌为例的时间同步算法的实现方案</h2><p>1 NTP<br>2 PTP</p>
-<h1 id="U2F"><a href="#U2F" class="headerlink" title="U2F"></a>U2F</h1><p>暂不考虑</p>
-<h1 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h1><p>需要同时设计windows与移动端的软件.<br>windows用于pwd的验证,移动端主要使用时间同步算法作为二次验证</p>
+        <h2 id="2FA-2-Factor-Authentication"><a href="#2FA-2-Factor-Authentication" class="headerlink" title="2FA (2 Factor Authentication)"></a>2FA (2 Factor Authentication)</h2><p>与传统身份认证不同.<br>2FA = pwd + 基于时间,物理硬件等自然变量通过一系列的加密算法得出的动态密码. </p>
+<h4 id="以steam令牌为例的时间同步算法的实现方案"><a href="#以steam令牌为例的时间同步算法的实现方案" class="headerlink" title="以steam令牌为例的时间同步算法的实现方案"></a>以steam令牌为例的时间同步算法的实现方案</h4><ol>
+<li>NTP</li>
+<li>PTP<h2 id="U2F"><a href="#U2F" class="headerlink" title="U2F"></a>U2F</h2>暂不考虑</li>
+</ol>
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>需要同时设计windows与移动端的软件.<br>windows用于pwd的验证,移动端主要使用时间同步算法作为二次验证</p>
 
     </div>
 
