@@ -170,7 +170,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-count">7</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -206,6 +206,98 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/09/DivideandConquer/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Evan">
+      <meta itemprop="description" content="c2a620074b4c79ebfc035e0df747273d">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="4nonymous">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/04/09/DivideandConquer/" class="post-title-link" itemprop="url">分而治之</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2021-04-09 14:20:27 / Modified: 14:33:23" itemprop="dateCreated datePublished" datetime="2021-04-09T14:20:27+01:00">2021-04-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Algorithm-Complexity/" itemprop="url" rel="index"><span itemprop="name">Algorithm & Complexity</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><ol>
+<li>Divide</li>
+<li>Conquer</li>
+<li>Combine</li>
+</ol>
+<h1 id="The-mergesort-algorithm"><a href="#The-mergesort-algorithm" class="headerlink" title="The mergesort algorithm"></a>The mergesort algorithm</h1><p>给定一个有n个数字的列表,将其按升序排列</p>
+<h2 id="pseudo"><a href="#pseudo" class="headerlink" title="pseudo"></a>pseudo</h2><p>Divide the given list A of n numbers into two lists B, C of equal size<br>Let B’ = MergeSort(B) and B’ = {b1 &lt; b2 &lt; . . . &lt; bn/2}<br>Let C’ = MergeSort(C) and C’ = {c1 &lt; c2 &lt; . . . &lt; cn/2}</p>
+<p>Initialize i = 1, j = 1, k = 1<br>Initialize D to be an empty array</p>
+<p>while i ≠ n/2 and j ≠ n/2 do</p>
+<pre><code>if bi &lt; cj then
+   Set dk=bi
+   increase both k and i by 1
+else
+   Set dk = cj
+   Increase both k and j by 1
+end if
+</code></pre>
+<p>end while</p>
+<p>如果其中的一个列表为空,那么将另外一个列表里的东西追加至D中. ie. i = n/2 or j = n/2</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
