@@ -170,7 +170,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-count">9</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -215,6 +215,115 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/13/bufferOverflow/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Evan">
+      <meta itemprop="description" content="c2a620074b4c79ebfc035e0df747273d">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="4nonymous">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/04/13/bufferOverflow/" class="post-title-link" itemprop="url">Buffer Overflow</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2021-04-13 20:39:52 / Modified: 21:09:57" itemprop="dateCreated datePublished" datetime="2021-04-13T20:39:52+01:00">2021-04-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Forensics-Malware-and-Penetration-Testing/" itemprop="url" rel="index"><span itemprop="name">Forensics,Malware and Penetration Testing</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>缓冲区为在程序运行阶段使用的内存空间,这些内存空间被用于存储程序当前使用的临时数据.</p>
+<h1 id="内存结构"><a href="#内存结构" class="headerlink" title="内存结构"></a>内存结构</h1><table>
+<tr>
+<th>Kernel</th>
+</tr>
+<tr>
+<th>Heap</th>
+</tr>
+<tr>
+<th>↓</th>
+</tr>
+<tr>
+<th>↑</th>
+</tr>
+<tr>
+<th>Stack</th>
+</tr>
+<tr>
+<th>Data</th>
+</tr>
+<tr>
+<th>Text</th>
+</tr>
+
+<p>以下为x86的内存结构</p>
+<p>最下面的地址为0x00000000</p>
+<p>最上面的地址为0xFFFFFFFF</p>
+<p>Text段存储程序的汇编代码,该区域为只读</p>
+<p>Data存放未赋值和赋值过的静态变量</p>
+<p>Heap为程序中动态内存</p>
+<p>Stack存放的时每一个函数的本地变量.当一个新的function被调用时, 这些数据被push到栈的顶部.</p>
+<p>Kernel暂且不管</p>
+<p>heap向上生长,而stack为向下生长</p>
+<p>缓冲区溢出的重点应该关于Stack.</p>
+</table>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/11/malwareAnalysis/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -246,7 +355,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-04-13 20:37:20" itemprop="dateModified" datetime="2021-04-13T20:37:20+01:00">2021-04-13</time>
+        <time title="Modified: 2021-04-13 20:39:11" itemprop="dateModified" datetime="2021-04-13T20:39:11+01:00">2021-04-13</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
