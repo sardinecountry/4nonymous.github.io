@@ -23,15 +23,15 @@
     var NexT = window.NexT || {};
     var CONFIG = {"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","version":"8.2.2","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
   </script>
-<meta name="description" content="缓冲区为在程序运行阶段使用的内存空间,这些内存空间被用于存储程序当前使用的临时数据. 内存结构  Kernel   Heap   ↓   ↑   Stack   Data   Text   以下为x86的内存结构 最下面的地址为0x00000000 最上面的地址为0xFFFFFFFF Text段存储程序的汇编代码,该区域为只读 Data存放未赋值和赋值过的静态变量 Heap为程序中动态内存 Sta">
+<meta name="description" content="缓冲区为在程序运行阶段使用的内存空间,这些内存空间被用于存储程序当前使用的临时数据. 内存结构  Kernel   Heap   ↓   ↑   Stack   Data   Text    以上为x86的内存结构 最下面的地址为0x00000000 最上面的地址为0xFFFFFFFF Text段存储程序的汇编代码,该区域为只读 Data存放未赋值和赋值过的静态变量 Heap为程序中动态内存 St">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Buffer Overflow">
 <meta property="og:url" content="http://example.com/2021/04/13/bufferOverflow/index.html">
 <meta property="og:site_name" content="4nonymous">
-<meta property="og:description" content="缓冲区为在程序运行阶段使用的内存空间,这些内存空间被用于存储程序当前使用的临时数据. 内存结构  Kernel   Heap   ↓   ↑   Stack   Data   Text   以下为x86的内存结构 最下面的地址为0x00000000 最上面的地址为0xFFFFFFFF Text段存储程序的汇编代码,该区域为只读 Data存放未赋值和赋值过的静态变量 Heap为程序中动态内存 Sta">
+<meta property="og:description" content="缓冲区为在程序运行阶段使用的内存空间,这些内存空间被用于存储程序当前使用的临时数据. 内存结构  Kernel   Heap   ↓   ↑   Stack   Data   Text    以上为x86的内存结构 最下面的地址为0x00000000 最上面的地址为0xFFFFFFFF Text段存储程序的汇编代码,该区域为只读 Data存放未赋值和赋值过的静态变量 Heap为程序中动态内存 St">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-04-13T19:39:52.000Z">
-<meta property="article:modified_time" content="2021-04-13T20:09:57.423Z">
+<meta property="article:modified_time" content="2021-04-13T20:17:19.386Z">
 <meta property="article:author" content="Evan">
 <meta name="twitter:card" content="summary">
 
@@ -157,7 +157,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%86%85%E5%AD%98%E7%BB%93%E6%9E%84"><span class="nav-number">1.</span> <span class="nav-text">内存结构</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%86%85%E5%AD%98%E7%BB%93%E6%9E%84"><span class="nav-number">1.</span> <span class="nav-text">内存结构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E7%9A%84%E8%B0%83%E7%94%A8%E8%BF%87%E7%A8%8B"><span class="nav-number">2.</span> <span class="nav-text">函数的调用过程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%B3%E4%BA%8EStack%E5%8C%BA%E5%9F%9F%E7%9A%84%E5%A4%A7%E5%B0%8F"><span class="nav-number">3.</span> <span class="nav-text">关于Stack区域的大小</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -244,7 +244,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2021-04-13 20:39:52 / Modified: 21:09:57" itemprop="dateCreated datePublished" datetime="2021-04-13T20:39:52+01:00">2021-04-13</time>
+      <time title="Created: 2021-04-13 20:39:52 / Modified: 21:17:19" itemprop="dateCreated datePublished" datetime="2021-04-13T20:39:52+01:00">2021-04-13</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -289,8 +289,9 @@
 <tr>
 <th>Text</th>
 </tr>
+</table>
 
-<p>以下为x86的内存结构</p>
+<p>以上为x86的内存结构</p>
 <p>最下面的地址为0x00000000</p>
 <p>最上面的地址为0xFFFFFFFF</p>
 <p>Text段存储程序的汇编代码,该区域为只读</p>
@@ -300,9 +301,10 @@
 <p>Kernel暂且不管</p>
 <p>heap向上生长,而stack为向下生长</p>
 <p>缓冲区溢出的重点应该关于Stack.</p>
-</table>
-
-
+<p>Tips: 将Stack想成一个只有单向通道的停车场, 车辆进出顺序为先进后出.</p>
+<h1 id="函数的调用过程"><a href="#函数的调用过程" class="headerlink" title="函数的调用过程"></a>函数的调用过程</h1><p>在x86内存结构中提到Stack区域为向下生长.显而易见, 每push一个新的东西到stack中,整个stack区域就越来越接近底部的位置(0x00000000).</p>
+<p>当一个函数被调用,这个函数中的参数与该函数申请的变量会被push到stack的最上面.随后指针来读取参数,最后指针会得到一个地址.这个地址就是就是所需参数的函数位置.有了函数地址,那么指针就会根据它跳转至函数所在地址执行函数操作</p>
+<h1 id="关于Stack区域的大小"><a href="#关于Stack区域的大小" class="headerlink" title="关于Stack区域的大小"></a>关于Stack区域的大小</h1>
     </div>
 
     
