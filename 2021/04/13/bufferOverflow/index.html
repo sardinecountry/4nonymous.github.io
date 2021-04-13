@@ -30,12 +30,12 @@
 <meta property="og:site_name" content="4nonymous">
 <meta property="og:description" content="缓冲区溢出详解">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/2021/04/13/bufferOverflow/%5Cimage%5Cbufferoverflow.png">
+<meta property="og:image" content="http://example.com/2021/04/13/bufferOverflow/2021-04-13-22-01-15.png">
 <meta property="article:published_time" content="2021-04-13T19:39:52.000Z">
-<meta property="article:modified_time" content="2021-04-13T20:54:01.333Z">
+<meta property="article:modified_time" content="2021-04-13T21:03:28.625Z">
 <meta property="article:author" content="Evan">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2021/04/13/bufferOverflow/%5Cimage%5Cbufferoverflow.png">
+<meta name="twitter:image" content="http://example.com/2021/04/13/bufferOverflow/2021-04-13-22-01-15.png">
 
 
 <link rel="canonical" href="http://example.com/2021/04/13/bufferOverflow/">
@@ -246,7 +246,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2021-04-13 20:39:52 / Modified: 21:54:01" itemprop="dateCreated datePublished" datetime="2021-04-13T20:39:52+01:00">2021-04-13</time>
+      <time title="Created: 2021-04-13 20:39:52 / Modified: 22:03:28" itemprop="dateCreated datePublished" datetime="2021-04-13T20:39:52+01:00">2021-04-13</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -310,11 +310,12 @@
 <h1 id="关于Stack区域的大小"><a href="#关于Stack区域的大小" class="headerlink" title="关于Stack区域的大小"></a>关于Stack区域的大小</h1><p>可以通过汇编语言查找<br>例如 sub,  esp 0x74<br>意味着开辟了一个0x74的空间,即116位的空间</p>
 <h1 id="构造缓冲区溢出"><a href="#构造缓冲区溢出" class="headerlink" title="构造缓冲区溢出"></a>构造缓冲区溢出</h1><p>尽管Stack为从高地址位指向低地址位,但是在缓冲区被填满时为从低地址位指向高地址位.</p>
 <p>试想在这116位的空间中,要构造缓冲区溢出,则需要传入的参数大于116位.</p>
-<h1 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h1><p>这是我期中考试比较简单的一道题<br><img src="%5Cimage%5Cbufferoverflow.png" alt="avatar"></p>
+<h1 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h1><p>这是我期中考试比较简单的一道题</p>
+<p><img src="2021-04-13-22-01-15.png"></p>
 <p>显而易见的是该文件具有遭受缓冲区溢出攻击的风险.且未使用Stack Canary作为保护.userinput在题目中为用户分配了999 bytes的输入分配,但是其与返回地址之间的距离为40个字节.</p>
 <p>在这种情况下,如果用户输入了足够长的字符串,那么返回地址将被覆盖,以供攻击者执行恶意代码文件.</p>
 <h1 id="关于意见和建议"><a href="#关于意见和建议" class="headerlink" title="关于意见和建议"></a>关于意见和建议</h1><p>可能没什么人看,但是希望如果你们有谁发现了一些问题,请联系我. 我将给以酬劳.</p>
-<p>E-mail: <a href="mailto:&#x73;&#x6f;&#97;&#x70;&#x79;&#x79;&#102;&#64;&#x67;&#109;&#97;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#109;">&#x73;&#x6f;&#97;&#x70;&#x79;&#x79;&#102;&#64;&#x67;&#109;&#97;&#x69;&#x6c;&#x2e;&#x63;&#x6f;&#109;</a></p>
+<p>E-mail: <a href="mailto:&#115;&#111;&#97;&#x70;&#121;&#121;&#102;&#64;&#103;&#109;&#x61;&#105;&#108;&#46;&#x63;&#111;&#109;">&#115;&#111;&#97;&#x70;&#121;&#121;&#102;&#64;&#103;&#109;&#x61;&#105;&#108;&#46;&#x63;&#111;&#109;</a></p>
 
     </div>
 
